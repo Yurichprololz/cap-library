@@ -18,7 +18,7 @@ modules:
     builder: npm-ci
 - name: library-db-deployer
   type: hdb
-  path: gen/db
+  path: db
   requires:
   - name: library-db
   parameters:
@@ -71,12 +71,54 @@ modules:
     build-result: resources
     requires:
     - artifacts:
-      - kbuibooks.zip
-      name: kbuibooks
+      - lbuibooks.zip
+      name: lbuibooks
       target-path: resources/
-- name: kbuibooks
+    - artifacts:
+      - uiauthors.zip
+      name: uiauthors
+      target-path: resources/
+    - artifacts:
+      - uibooking.zip
+      name: uibooking
+      target-path: resources/
+    - artifacts:
+      - uireaders.zip
+      name: uireaders
+      target-path: resources/
+- name: lbuibooks
   type: html5
   path: app/ui.books
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: uiauthors
+  type: html5
+  path: app/ui.authors
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: uibooking
+  type: html5
+  path: app/ui.booking
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: uireaders
+  type: html5
+  path: app/ui.readers
   build-parameters:
     build-result: dist
     builder: custom

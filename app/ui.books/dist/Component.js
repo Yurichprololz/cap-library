@@ -1,1 +1,1 @@
-sap.ui.define(["sap/fe/core/AppComponent"],function(e){"use strict";return e.extend("kb.ui.books.Component",{metadata:{manifest:"json"}})});
+sap.ui.define(["sap/fe/core/AppComponent"],function(e){"use strict";return e.extend("lb.ui.books.Component",{metadata:{manifest:"json"}})});

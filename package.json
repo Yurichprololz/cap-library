@@ -12,15 +12,19 @@
     },
     "devDependencies": {
         "@sap/ux-specification": "^1.102.3",
-        "sqlite3": "^5.0.4",
-        "rimraf": "^3.0.2"
+        "rimraf": "^3.0.2",
+        "sqlite3": "^5.0.4"
     },
     "scripts": {
         "start": "cds run",
+        "dev": "cds watch --profile hybrid",
         "watch-ui.books": "cds watch --open ui.books/webapp/index.html?sap-ui-xx-viewCache=false",
         "undeploy": "cf undeploy library --delete-services --delete-service-keys --delete-service-brokers",
         "build": "rimraf resources mta_archives && mbt build --mtar archive",
-        "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+        "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
+        "watch-ui.authors": "cds watch --open ui.authors/webapp/index.html?sap-ui-xx-viewCache=false",
+        "watch-ui.booking": "cds watch --open ui.booking/webapp/index.html?sap-ui-xx-viewCache=false",
+        "watch-ui.readers": "cds watch --open ui.readers/webapp/index.html?sap-ui-xx-viewCache=false"
     },
     "eslintConfig": {
         "extends": "eslint:recommended",
@@ -48,24 +52,24 @@
         }
     },
     "cds": {
-        "build": {
-            "tasks": [
-                {
-                    "for": "hana",
-                    "dest": "../gen/db"
-                },
-                {
-                    "for": "node-cf"
-                }
-            ]
-        },
         "requires": {
             "db": {
                 "kind": "hana-cloud"
+            },
+            "[hybrid]": {
+                "db": {
+                    "kind": "hana-cloud"
+                }
             }
+        },
+        "hana": {
+            "deploy-format": "hdbtable"
         }
     },
     "sapux": [
-        "app/ui.books"
+        "app/ui.books",
+        "app/ui.authors",
+        "app/ui.booking",
+        "app/ui.readers"
     ]
 }

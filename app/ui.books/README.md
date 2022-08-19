@@ -1,16 +1,16 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Wed Aug 17 2022 09:21:26 GMT+0000 (Coordinated Universal Time)|
+|**Generation Date and Time**<br>Wed Aug 17 2022 13:41:35 GMT+0000 (Coordinated Universal Time)|
 |**App Generator**<br>@sap/generator-fiori-elements|
 |**App Generator Version**<br>1.7.0|
 |**Generation Platform**<br>SAP Business Application Studio|
 |**Floorplan Used**<br>List Report Object Page V4|
 |**Service Type**<br>Local Cap|
-|**Service URL**<br>http://localhost:4004/catalog/
+|**Service URL**<br>http://localhost:4004/library/
 |**Module Name**<br>ui.books|
-|**Application Title**<br>books|
-|**Namespace**<br>kb|
+|**Application Title**<br>Books|
+|**Namespace**<br>lb|
 |**UI5 Theme**<br>sap_fiori_3|
 |**UI5 Version**<br>1.102.1|
 |**Enable Code Assist Libraries**<br>False|
