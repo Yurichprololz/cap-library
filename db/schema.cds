@@ -1,6 +1,6 @@
 namespace my.library;
 
-using { cuid } from '@sap/cds/common';
+using { cuid, Currency } from '@sap/cds/common';
 
 entity Authors :cuid
 {
@@ -16,6 +16,10 @@ entity Books :cuid
     author : Association to Authors;
     pageNum : Integer;
     CopyQty : Integer;
+    status: Association to Status;
+    price: Integer;
+    currency: Currency;
+
 }
 
 entity Booking :cuid
@@ -35,3 +39,9 @@ entity Readers :cuid
     PhoneNumber : Integer;
 }
 
+entity Status {
+    key code    : Integer;
+        name    : String;
+        orderID : Association to many Books
+                      on orderID.status = $self;
+}

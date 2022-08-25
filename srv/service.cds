@@ -1,6 +1,5 @@
 using my.library as my from '../db/schema';
 
-
 service LibraryService {
 
     entity Books   as projection on my.Books;
@@ -9,7 +8,6 @@ service LibraryService {
     entity Readers as projection on my.Readers;
 
 };
-
 
 annotate LibraryService.Books with @odata.draft.enabled;
 annotate LibraryService.Authors with @odata.draft.enabled;
