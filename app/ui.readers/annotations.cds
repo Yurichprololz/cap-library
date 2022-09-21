@@ -4,12 +4,12 @@ annotate service.Readers with @(
     UI.LineItem : [
         {
             $Type : 'UI.DataField',
-            Label : 'birthDate',
+            Label : 'birth Date',
             Value : birthDate,
         },
         {
             $Type : 'UI.DataField',
-            Label : 'PhoneNumber',
+            Label : 'Phone Number',
             Value : PhoneNumber,
         },
     ]
@@ -20,12 +20,12 @@ annotate service.Readers with @(
         Data : [
             {
                 $Type : 'UI.DataField',
-                Label : 'birthDate',
+                Label : 'birth date',
                 Value : birthDate,
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'PhoneNumber',
+                Label : 'Phone Number',
                 Value : PhoneNumber,
             },
         ],

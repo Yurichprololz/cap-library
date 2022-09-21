@@ -1,47 +1,53 @@
 namespace my.library;
 
-using { cuid, Currency } from '@sap/cds/common';
+using {
 
-entity Authors :cuid
-{
-    firstName: String;
-    secondName: String;
-    birthDate : Date;
-    country : String;
+    Currency,
+    managed
+} from '@sap/cds/common';
+
+entity Authors {
+    key ID         : UUID;
+        firstName  : String;
+        secondName : String;
+        birthDate  : Date;
+        country    : String;
+        book       : Association to many Books
+                         on book.author = $self;
 }
 
-entity Books :cuid
-{
-    bookName : String;
-    author : Association to Authors;
-    pageNum : Integer;
-    CopyQty : Integer;
-    status: Association to Status;
-    price: Integer;
-    currency: Currency;
-
+entity Books {
+    key bookUUID   : UUID;
+        bookName   : String;
+        author     : Association to Authors;
+        pageNumber : Integer;
+        copyQty    : Integer;
+        shippedQty : Integer;
+        status     : Association to Status;
+        price      : Decimal(15, 2);
+        currency   : Currency;
 }
 
-entity Booking :cuid
-{
-    bookID : Association to one Books;
-    personID : Association to one Readers;
-    bookingStatus : String;
-    bookingStartDate : Date;
-    bookingStartTime : Time;
-    bookingEndDate : Date;
-    bookingEndTime : Time;
+entity Booking {
+    key ID               : UUID;
+        bookID           : Association to Books;
+        personID         : Association to Readers;
+        bookingStatus    : String;
+        bookingStartDate : Date;
+        bookingStartTime : Time;
+        bookingEndDate   : Date;
+        bookingEndTime   : Time;
 }
 
-entity Readers :cuid
-{
-    birthDate : Date;
-    PhoneNumber : Integer;
+entity Readers {
+    key ID          : UUID;
+        birthDate   : Date;
+        PhoneNumber : Integer;
 }
 
 entity Status {
-    key code    : Integer;
-        name    : String;
-        orderID : Association to many Books
-                      on orderID.status = $self;
+    key ID     : String;
+        name   : String;
+        bookID : Association to many Books
+                     on bookID.status = $self;
 }

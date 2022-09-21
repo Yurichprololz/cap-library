@@ -4,27 +4,27 @@ annotate service.Booking with @(
     UI.LineItem : [
         {
             $Type : 'UI.DataField',
-            Label : 'bookingStatus',
+            Label : 'booking status',
             Value : bookingStatus,
         },
         {
             $Type : 'UI.DataField',
-            Label : 'bookingStartDate',
+            Label : 'booking start date',
             Value : bookingStartDate,
         },
         {
             $Type : 'UI.DataField',
-            Label : 'bookingStartTime',
+            Label : 'booking start time',
             Value : bookingStartTime,
         },
         {
             $Type : 'UI.DataField',
-            Label : 'bookingEndDate',
+            Label : 'booking end date',
             Value : bookingEndDate,
         },
         {
             $Type : 'UI.DataField',
-            Label : 'bookingEndTime',
+            Label : 'booking end time',
             Value : bookingEndTime,
         },
     ]
@@ -35,27 +35,27 @@ annotate service.Booking with @(
         Data : [
             {
                 $Type : 'UI.DataField',
-                Label : 'bookingStatus',
+                Label : 'booking status',
                 Value : bookingStatus,
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'bookingStartDate',
+                Label : 'booking start date',
                 Value : bookingStartDate,
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'bookingStartTime',
+                Label : 'booking start time',
                 Value : bookingStartTime,
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'bookingEndDate',
+                Label : 'booking end date',
                 Value : bookingEndDate,
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'bookingEndTime',
+                Label : 'booking end time',
                 Value : bookingEndTime,
             },
         ],

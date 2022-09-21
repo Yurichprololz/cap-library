@@ -15,11 +15,11 @@
       "destination": "ui5"
     },
     {
-      "source": "^/library/(.*)$",
-      "target": "/library/$1",
-      "destination": "library-app-srv",
-      "authenticationType": "xsuaa",
-      "csrfProtection": false
+        "source": "^/library/(.*)$",
+        "target": "/library/$1",
+        "destination": "library-app-srv",
+        "authenticationType": "xsuaa",
+        "csrfProtection": false
     },
     {
       "source": "^(.*)$",

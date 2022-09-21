@@ -1,0 +1,9 @@
+{
+    "sqltools.connections": [
+        {
+            "dialect": "SQLite",
+            "database": "/home/user/projects/library/my.db",
+            "name": "sq3"
+        }
+    ]
+}

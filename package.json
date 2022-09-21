@@ -6,14 +6,16 @@
     "license": "UNLICENSED",
     "private": true,
     "dependencies": {
+        "@sap-cloud-sdk/http-client": "^2.8.0",
         "@sap/cds": ">=5",
+        "@sap/xsenv": "^3.3.2",
         "express": "^4",
-        "hdb": "^0.19.0"
+        "hdb": "^0.19.0",
+        "passport": "^0.6.0"
     },
     "devDependencies": {
-        "@sap/ux-specification": "^1.102.3",
-        "rimraf": "^3.0.2",
-        "sqlite3": "^5.0.4"
+        "@sap/ux-specification": "^1.102.4",
+        "rimraf": "^3.0.2"
     },
     "scripts": {
         "start": "cds run",
@@ -56,14 +58,17 @@
             "db": {
                 "kind": "hana-cloud"
             },
+            "CPIDestination": {
+                "kind": "rest",
+                "credentials": {
+                    "destination": "CPI_DESTINATION"
+                }
+            },
             "[hybrid]": {
                 "db": {
                     "kind": "hana-cloud"
                 }
             }
-        },
-        "hana": {
-            "deploy-format": "hdbtable"
         }
     },
     "sapux": [
