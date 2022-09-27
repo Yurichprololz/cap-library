@@ -1,5 +1,7 @@
 const cds = require('@sap/cds');
 const constants = require('./constants');
+const SapCfAxios = require('sap-cf-axios').default;
+
 
 module.exports = {
     orderBook: orderBook
@@ -13,7 +15,6 @@ async function orderBook(req) {
     try {
         const { bookUUID } = req.params[0];
         const quantity = req.data.Quantity;
-        console.log('quantity ' +  quantity)
         const orderInfo = await SELECT.from(Books).where({ bookUUID: bookUUID });
         if (quantity > 0) {
             const authorInfo = await SELECT.from(Authors).where({ ID: orderInfo[0].author_ID });
@@ -28,11 +29,15 @@ async function orderBook(req) {
                 CurrencyCode_code: orderInfo[0].currency_code,
                 status_ID: "1"
             });
-            const cpi = await cds.connect.to('CPIDestination');
-            
-            const b = await cpi.tx(req).post('/book', payload);
-            console.log('first req ' + b)
-            await cpi.tx(req).post('/order', payload);
+            const axios = SapCfAxios("CPI_DESTINATION");
+            axios({
+                method: 'POST',
+                url: '/http/book',
+                data: payload,
+                headers: {
+                    "content-type": "application/json"
+                }
+            });
             await UPDATE(Books, { bookUUID: bookUUID }).with({ status_ID: "1" });
         } else return req.error(400, constants.genericErrors.quantityNotApplicable);
     }
