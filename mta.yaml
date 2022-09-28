@@ -20,7 +20,7 @@ modules:
       builder: npm-ci
   - name: library-db-deployer
     type: hdb
-    path: db
+    path: gen/db
     requires:
       - name: library-db
     parameters:

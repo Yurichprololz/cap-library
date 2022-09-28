@@ -1,115 +1,154 @@
 using LibraryService as service from '../../srv/service';
 
-annotate service.Books with @(UI : {LineItem : [
-    {
-        $Type : 'UI.DataField',
-        Label : 'book name',
-        Value : bookName,
-    },
-    {
-        $Type : 'UI.DataField',
-        Label : 'author name',
-        Value : author.firstName,
-    },
-    {
-        $Type : 'UI.DataField',
-        Label : 'author surname',
-        Value : author.secondName,
-    },
-    {
-        $Type : 'UI.DataField',
-        Label : 'price',
-        Value : price,
-
-    },
-
-]}) {
-    @Measures.ISOCurrency : currency_code
-    price;
-};
-
-
 annotate service.Books with @(
-    UI.FieldGroup #GeneratedGroup1 : {
-        $Type : 'UI.FieldGroupType',
-        Data  : [
+    UI        : {
+        SelectionFields     : [author_authorUUID],
+        Identification      : [{Value : bookUUID}],
+        LineItem            : [
             {
-                $Type : 'UI.DataField',
-                Label : 'book name',
-                Value : bookName,
+                $Type             : 'UI.DataField',
+                Value             : bookID,
+                ![@UI.Importance] : #High
             },
             {
-                $Type : 'UI.DataField',
-                Label : 'сopy quantity',
-                Value : copyQty,
+                $Type             : 'UI.DataField',
+                Value             : Status_ID,
+                Criticality       : Status.criticality,
+                ![@UI.Importance] : #High
             },
             {
-                $Type : 'UI.DataField',
-                Label : 'status',
-                Value : status_ID,
+                $Type             : 'UI.DataField',
+                Value             : bookName,
+                ![@UI.Importance] : #High
             },
             {
-                $Type : 'UI.DataField',
-                Label : 'price',
-                Value : price,
+                $Type             : 'UI.DataField',
+                Value             : author.firstName,
+                ![@UI.Importance] : #High
             },
             {
-                $Type : 'UI.DataField',
-                Label : 'author',
-                Value : author_ID,
+                $Type             : 'UI.DataField',
+                Value             : author.lastName,
+                ![@UI.Importance] : #High
             },
             {
-                $Type : 'UI.DataField',
-                Label : 'page number',
-                Value : pageNumber,
+                $Type             : 'UI.DataField',
+                Value             : pageNumber,
+                ![@UI.Importance] : #High
             },
             {
-                $Type : 'UI.DataField',
-                Label : 'shipped Qty',
-                Value : shippedQty,
+                $Type             : 'UI.DataField',
+                Value             : copyQty,
+                ![@UI.Importance] : #High
             },
             {
-                $Type  : 'UI.DataFieldForAction',
-                Action : 'LibraryService.orderBook',
-                Label  : '{i18n>orderBook}'
-            },
-
-
+                $Type             : 'UI.DataField',
+                Value             : price,
+                ![@UI.Importance] : #High
+            }
         ],
+        PresentationVariant : {SortOrder : [{
+            $Type      : 'Common.SortOrderType',
+            Property   : bookID,
+            Descending : false
+        }]},
     },
-
-    UI.Facets                      : [{
-        $Type  : 'UI.ReferenceFacet',
-        ID     : 'GeneratedFacet1',
-        Label  : 'General Information',
-        Target : '@UI.FieldGroup#GeneratedGroup1',
-    }, ]
-);
-
-annotate service.Books with {
-
-    author @(Common : {
-        Text            : author.secondName,
-        TextArrangement : #TextOnly,
-        ValueList       : {
-            Label          : 'Authors',
-            CollectionPath : 'Authors',
-            Parameters     : [
-                {
-                    $Type             : 'Common.ValueListParameterInOut',
-                    LocalDataProperty : author_ID,
-                    ValueListProperty : 'ID'
-                },
-                {
-                    $Type             : 'Common.ValueListParameterDisplayOnly',
-                    ValueListProperty : 'firstName'
-                },
-                {
-                    $Type             : 'Common.ValueListParameterDisplayOnly',
-                    ValueListProperty : 'secondName'
-                },
-            ]
+    UI        : {
+        HeaderInfo                     : {
+            TypeName       : 'Book',
+            TypeNamePlural : 'Books',
+            Title          : {Value : bookName},
+            Description    : {Value : author.lastName}
+        },
+        HeaderFacets                   : [{
+            $Type             : 'UI.ReferenceFacet',
+            Target            : '@UI.FieldGroup#Description',
+            ![@UI.Importance] : #High
+        }],
+        FieldGroup #Description        : {Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : image
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : copyQty
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : pageNumber
+            },
+        ]},
+        FieldGroup #Details            : {Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : bookID
+            },
+            {
+                $Type       : 'UI.DataField',
+                Value       : Status_ID,
+                Criticality : Status.criticality
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : bookName
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : author_authorUUID
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : pageNumber
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : copyQty
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : price
+            }
+        ]},
+        FieldGroup #AdministrativeData : {Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : createdBy
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : createdAt
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : modifiedBy
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : modifiedAt
+            }
+        ]}
+    },
+    UI.Facets : [
+        {
+            $Type  : 'UI.CollectionFacet',
+            ID     : 'PODetails',
+            Label  : '{i18n>readerInfo}',
+            Facets : [{
+                $Type  : 'UI.ReferenceFacet',
+                Label  : '{i18n>readerinfo}',
+                Target : '@UI.FieldGroup#Details'
+            }]
+        },
+        {
+            $Type  : 'UI.CollectionFacet',
+            ID     : 'POAdmininfo',
+            Label  : '{i18n>adminInfo}',
+            Facets : [{
+                $Type  : 'UI.ReferenceFacet',
+                Label  : '{i18n>admininfo}',
+                Target : '@UI.FieldGroup#AdministrativeData'
+            }]
         }
-    });
-
-}
+    ]
+);

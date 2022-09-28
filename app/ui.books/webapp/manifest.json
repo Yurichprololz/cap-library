@@ -37,16 +37,21 @@
         },
         "crossNavigation": {
             "inbounds": {
-                "ui-books-inbound": {
+                "zlab-zlabbook-inbound": {
                     "signature": {
                         "parameters": {},
                         "additionalParameters": "allowed"
                     },
-                    "semanticObject": "books",
+                    "semanticObject": "Books",
                     "action": "manage",
                     "title": "{{flpTitle}}",
                     "subTitle": "{{flpSubtitle}}",
-                    "icon": ""
+                    "icon": "sap-icon://education",
+                    "indicatorDataSource": {
+                        "dataSource": "mainService",
+                        "path": "/dynamic_dest/library_service/library/Books/$count",
+                        "refresh": 10
+                    }
                 }
             }
         }
@@ -108,7 +113,6 @@
             "css": []
         },
         "routing": {
-            "config": {},
             "routes": [
                 {
                     "pattern": ":?query:",

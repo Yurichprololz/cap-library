@@ -37,7 +37,7 @@
         },
         "crossNavigation": {
             "inbounds": {
-                "ui-booking-inbound": {
+                "zlab-zlabbooking-inbound": {
                     "signature": {
                         "parameters": {},
                         "additionalParameters": "allowed"
@@ -46,7 +46,12 @@
                     "action": "manage",
                     "title": "{{flpTitle}}",
                     "subTitle": "{{flpSubtitle}}",
-                    "icon": ""
+                    "icon": "sap-icon://course-book",
+                    "indicatorDataSource": {
+                        "dataSource": "mainService",
+                        "path": "/dynamic_dest/zlablibrary-app-srv/library/Booking/$count",
+                        "refresh": 10
+                    }
                 }
             }
         }
@@ -108,7 +113,6 @@
             "css": []
         },
         "routing": {
-            "config": {},
             "routes": [
                 {
                     "pattern": ":?query:",

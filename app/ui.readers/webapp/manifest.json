@@ -37,7 +37,7 @@
         },
         "crossNavigation": {
             "inbounds": {
-                "ui-readers-inbound": {
+                "zlab-zlabreader-inbound": {
                     "signature": {
                         "parameters": {},
                         "additionalParameters": "allowed"
@@ -46,7 +46,12 @@
                     "action": "manage",
                     "title": "{{flpTitle}}",
                     "subTitle": "{{flpSubtitle}}",
-                    "icon": ""
+                    "icon": "sap-icon://customer",
+                    "indicatorDataSource": {
+                        "dataSource": "mainService",
+                        "path": "/dynamic_dest/library-app-srv/library/Readers/$count",
+                        "refresh": 10
+                    }
                 }
             }
         }
@@ -108,7 +113,6 @@
             "css": []
         },
         "routing": {
-            "config": {},
             "routes": [
                 {
                     "pattern": ":?query:",
