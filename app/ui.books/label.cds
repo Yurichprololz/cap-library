@@ -12,7 +12,7 @@ annotate library.Books with @title       : '{i18n>bookTitle}' {
     requestedQty @title                  : '{i18n>requestedQuantity}';
     price        @title                  : '{i18n>price}'
                  @Measures.ISOCurrency   : CurrencyCode_code;
-    status       @title                  : '{i18n>bookstatus}'
+    Status       @title                  : '{i18n>bookstatus}'
                  @Common.Text            : Status.name
                  @Common.TextArrangement : #TextFirst;
     CurrencyCode @title                  : '{i18n>currency}'
