@@ -2,7 +2,7 @@ using LibraryService as service from '../../srv/service';
 
 annotate LibraryService.Booking with @(
     UI        : {
-        Identification      : [{Value : bookingStatus_ID}],
+        Identification      : [{Value : bookingStatus_ID}, {$Type: 'UI.DataFieldForAction', Action: 'LibraryService.returnTheBook', Label:'{i18n>returnTheBook}'}],
         SelectionFields     : [
             bookingStatus_ID,
             readerID_readerUUID,
