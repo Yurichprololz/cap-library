@@ -49,7 +49,7 @@
                     "icon": "sap-icon://course-book",
                     "indicatorDataSource": {
                         "dataSource": "mainService",
-                        "path": "/dynamic_dest/zlablibrary-app-srv/library/Booking/$count",
+                        "path": "/dynamic_dest/library-app-srv/library/Booking/$count",
                         "refresh": 10
                     }
                 }

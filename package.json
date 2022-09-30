@@ -8,7 +8,6 @@
     "dependencies": {
         "@sap-cloud-sdk/http-client": "^2.8.0",
         "@sap/cds": ">=5",
-        "@sap/xsenv": "^3.3.2",
         "express": "^4",
         "hdb": "^0.19.0",
         "passport": "^0.6.0",
@@ -24,7 +23,7 @@
         "watch-ui.books": "cds watch --open ui.books/webapp/index.html?sap-ui-xx-viewCache=false",
         "undeploy": "cf undeploy library --delete-services --delete-service-keys --delete-service-brokers",
         "build": "rimraf resources mta_archives && mbt build --mtar archive",
-        "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
+        "deploy": "cf deploy mta_archives/library_1.0.0.mtar --retries 1",
         "watch-ui.authors": "cds watch --open ui.authors/webapp/index.html?sap-ui-xx-viewCache=false",
         "watch-ui.booking": "cds watch --open ui.booking/webapp/index.html?sap-ui-xx-viewCache=false",
         "watch-ui.readers": "cds watch --open ui.readers/webapp/index.html?sap-ui-xx-viewCache=false"

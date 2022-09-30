@@ -49,7 +49,7 @@
                     "icon": "sap-icon://customer",
                     "indicatorDataSource": {
                         "dataSource": "mainService",
-                        "path": "/dynamic_dest/ui.authors/library-app-srv/Authors/$count",
+                        "path": "/dynamic_dest/library-app-srv/library/Authors/$count",
                         "refresh": 10
                     }
                 }

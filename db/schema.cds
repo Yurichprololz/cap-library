@@ -1,9 +1,6 @@
 namespace my.library;
 
-using {
-
-       // Currency,
-       managed} from '@sap/cds/common';
+using {managed} from '@sap/cds/common';
 using {masterdata} from './master-data';
 using {
     sap.common.CodeList,
@@ -39,7 +36,7 @@ entity Authors : managed {
 entity Books : managed {
     key bookUUID     : UUID;
         author       : Association to Authors;
-        Status       : Association to masterdata.BookStatuses;
+        status       : Association to masterdata.BookStatuses;
         bookID       : Integer;
         bookName     : String(60);
         CurrencyCode : Currency;

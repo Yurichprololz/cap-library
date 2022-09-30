@@ -7,5 +7,5 @@ annotate LibraryService.Books with {
     copyQty      @mandatory;
     price        @mandatory;
     CurrencyCode @mandatory;
-    Status       @readonly;
+    status       @readonly;
 };

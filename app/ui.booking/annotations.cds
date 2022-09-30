@@ -6,8 +6,8 @@ annotate LibraryService.Booking with @(
             {Value : bookingStatus_ID},
             {
                 $Type  : 'UI.DataFieldForAction',
-                Action : 'LibraryService.returnTheBook',
-                Label  : '{i18n>returnTheBook}'
+                Action : 'LibraryService.orderBook',
+                Label  : '{i18n>orderBook}'
             }
         ],
         SelectionFields     : [

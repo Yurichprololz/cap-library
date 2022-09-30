@@ -49,7 +49,7 @@
                     "icon": "sap-icon://education",
                     "indicatorDataSource": {
                         "dataSource": "mainService",
-                        "path": "/dynamic_dest/library_service/library/Books/$count",
+                        "path": "/dynamic_dest/library-app-srv/library/Books/$count",
                         "refresh": 10
                     }
                 }

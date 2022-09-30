@@ -9,7 +9,7 @@ module.exports = cds.service.impl(async function () {
     this.before('NEW', 'Books', async (req) => {
         const { maxID } = await SELECT.one`max(bookID) as maxID`.from(Books) || 0;
         req.data.bookID = maxID + 1;
-        req.data.Status_ID = '0'
+        req.data.status_ID = '0'
     });
 
     this.before('NEW', 'Readers', async (req) => {
